@@ -30,9 +30,13 @@ one `use-package` expression.  And it's tiring to surround all blocks with
 
 `use-block` adds two header arguments to the Emacs Lisp source code blocks.
 
-  * `:pre-init` *PACKAGE* - the source code block is evaluated before *PACKAGE* is loaded.
+  - `:pre-init` *PACKAGE*
 
-  * `:post-init` *PACKAGE* - the source code block is evaluated after *PACKAGE* is loaded.
+    the source code block is evaluated before *PACKAGE* is loaded.
+
+  - `:post-init` *PACKAGE*
+
+    the source code block is evaluated after *PACKAGE* is loaded.
 
 If you write `config.org`
 
