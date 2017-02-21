@@ -108,7 +108,8 @@ for all source code blocks."
     (with-temp-file (or target-file
                         (concat (file-name-sans-extension file) ".el"))
       (dolist (body (reverse body-list))
-        (insert (format "\n%S\n" (use-block--expand-body body package-object)))))))
+        (insert (concat "\n"
+                        (pp-to-string (use-block--expand-body body package-object))))))))
 
 
 ;;;###autoload
