@@ -1,12 +1,12 @@
 # use-block
 
-The `use-block` merges all Emacs Lisp source code blocks in Org mode into
-`use-package` expressions
+The `use-block` merges all Emacs Lisp source code blocks in Org mode
+into `use-package` expressions
 
 ## Motivation
 
-When you write the Emacs configuration file in Org mode with
-[use-package](https://github.com/jwiegley/use-package),
+When you write the Emacs configuration file in Org mode
+with [use-package](https://github.com/jwiegley/use-package),
 
 ``` org
 * Org mode configuration
@@ -21,14 +21,16 @@ When you write the Emacs configuration file in Org mode with
 #+end_src
 ```
 
-in spite of Literate Programming, it's unavoidable that comments are embedded
-into the source code blocks because all the configurations have to be packed into
-one `use-package` expression.  And it's tiring to surround all blocks with
-`use-package` or `eval-after-load` if all of them are divided into some extent.
+in spite of Literate Programming, it's unavoidable that comments are
+embedded into the source code blocks because all the configurations
+have to be packed into one `use-package` expression.  And it's tiring
+to surround all blocks with `use-package` or `eval-after-load` if all
+of them are divided into some extent.
 
 ## Usage
 
-`use-block` adds two header arguments to the Emacs Lisp source code blocks.
+`use-block` adds two header arguments to the Emacs Lisp source code
+blocks.
 
   - `:pre-init` *PACKAGE*
 
@@ -89,6 +91,6 @@ Emacs Lisp file `config.el` is exported and loaded.
   :config)
 ```
 
-Note that expressions other than use-package expressions in code blocks
-without header arguments such as `:pre-init` and `:post-init` are exported
-as is.
+Note that expressions other than use-package expressions in code
+blocks without header arguments such as `:pre-init` and `:post-init`
+are exported as is.
