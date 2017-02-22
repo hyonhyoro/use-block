@@ -43,8 +43,8 @@ blocks.
 If you write `config.org`
 
 ``` org
-* config.org
-** Org mode configuration
+# config.org
+* Org mode configuration
 #+begin_src emacs-lisp
 (use-package org
   :defer t
