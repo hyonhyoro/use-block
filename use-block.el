@@ -6,7 +6,7 @@
 ;; Maintainer: Kazuho Sakoda <hyonhyoro.kazuho@gmail.com>
 ;; Version: 0.1.0
 ;; Keywords: config, init, org
-;; Package-Requires: ((emacs "24.3") (dash "2.13.0"))
+;; Package-Requires: ((emacs "24.3"))
 ;; URL: https://github.com/hyonhyoro/use-block
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -26,7 +26,6 @@
 
 ;;; Code:
 (require 'ob-core)
-(require 'dash)
 
 
 (defun use-block--make-package-object (&optional alist)
@@ -59,8 +58,11 @@ PROP is a symbol and SEQUENCE is a list of expressions."
 
 (defun use-block--find-header-arg (args)
   "Return a header argument whose car is :pre-init or :post-init from ARGS."
-  (-last #'(lambda (arg) (memq (car arg) '(:pre-init :post-init)))
-         args))
+  (let ((temp))
+    (dolist (arg args)
+      (when (memq (car arg) '(:pre-init :post-init))
+        (setq temp arg)))
+    temp))
 
 
 (defun use-block--expand-use-package (form plist)
