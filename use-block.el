@@ -96,11 +96,11 @@ for all source code blocks."
         (package-object (use-block--make-package-object)))
     (org-babel-map-src-blocks file
       (let ((lang (org-no-properties lang))
-            (src-block (car (read-from-string (concat "(" body ")"))))
             (header-args (org-babel-parse-header-arguments header-args)))
         (when (and (string= "emacs-lisp" lang)
                    (not (string= "no" (cdr (assq :tangle header-args)))))
-          (let ((header-arg (use-block--find-header-arg header-args)))
+          (let ((header-arg (use-block--find-header-arg header-args))
+                (src-block (car (read-from-string (concat "(" body ")")))))
             (if header-arg
                 (use-block--put-package package-object
                                         (cdr header-arg)
