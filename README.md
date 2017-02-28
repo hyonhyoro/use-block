@@ -14,7 +14,7 @@ with [use-package](https://github.com/jwiegley/use-package),
 (use-package org
   :defer t
   :config
-  ;; Many comments about todo, capture, agenda, tag, column, clock etc.
+  ;; Many comments about todo, capture, agenda, tag, column, clock, etc.
   (setq ...)
   ...
   )
